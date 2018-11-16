@@ -1,0 +1,199 @@
+﻿@model IEnumerable<test_asp.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Users</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Username)</th>
+                        <th>@Html.DisplayNameFor(model => model.Access)</th>
+                        <th>@Html.DisplayNameFor(model => model.Status)</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Username)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Access)</td>
+                            <td>
+                                <input type="checkbox" class="icheckbox_flat-green" checked>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.card -->
+
+    </div> <!-- .col-md-6-->
+
+    <div class="col-md-4">
+
+        <!-- iCheck -->
+        <div class="card card-success">
+            <div class="card-header">
+                <h3 class="card-title">iCheck - Checkbox &amp; Radio Inputs</h3>
+            </div>
+            <div class="card-body">
+                <!-- Minimal style -->
+                <!-- checkbox -->
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" class="icheckbox_flat-green" checked>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="minimal">
+                    </label>
+                    <label>
+                        <input type="checkbox" class="minimal" disabled>
+                        Minimal skin checkbox
+                    </label>
+                </div>
+
+                <!-- radio -->
+                <div class="form-group">
+                    <label>
+                        <input type="radio" name="r1" class="minimal" checked>
+                    </label>
+                    <label>
+                        <input type="radio" name="r1" class="minimal">
+                    </label>
+                    <label>
+                        <input type="radio" name="r1" class="minimal" disabled>
+                        Minimal skin radio
+                    </label>
+                </div>
+
+                <!-- Minimal red style -->
+                <!-- checkbox -->
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" class="minimal-red" checked>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="minimal-red">
+                    </label>
+                    <label>
+                        <input type="checkbox" class="minimal-red" disabled>
+                        Minimal red skin checkbox
+                    </label>
+                </div>
+
+                <!-- radio -->
+                <div class="form-group">
+                    <label>
+                        <input type="radio" name="r2" class="minimal-red" checked>
+                    </label>
+                    <label>
+                        <input type="radio" name="r2" class="minimal-red">
+                    </label>
+                    <label>
+                        <input type="radio" name="r2" class="minimal-red" disabled>
+                        Minimal red skin radio
+                    </label>
+                </div>
+
+                <!-- Minimal red style -->
+                <!-- checkbox -->
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" class="flat-red" checked>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="flat-red">
+                    </label>
+                    <label>
+                        <input type="checkbox" class="flat-red" disabled>
+                        Flat green skin checkbox
+                    </label>
+                </div>
+
+                <!-- radio -->
+                <div class="form-group">
+                    <label>
+                        <input type="radio" name="r3" class="flat-red" checked>
+                    </label>
+                    <label>
+                        <input type="radio" name="r3" class="flat-red">
+                    </label>
+                    <label>
+                        <input type="radio" name="r3" class="flat-red" disabled>
+                        Flat green skin radio
+                    </label>
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                Many more skins available. <a href="http://fronteed.com/iCheck/">Documentation</a>
+            </div>
+        </div>
+    </div> <!-- ./col-md-4 -->
+</div><!-- .row -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Access)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Access)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
